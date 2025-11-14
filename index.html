@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция: Управление дисками Windows 11</title>
+    <style>
+        :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+code, pre {
+  font-family: var(--font-family-mono);
+  font-size: calc(var(--font-size-base) * 0.95);
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: var(--space-1) var(--space-4);
+}
+
+pre {
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* App Layout */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background-color: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    padding: var(--space-24);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-24);
+    color: var(--color-text);
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-bottom: var(--space-8);
+}
+
+.nav-link {
+    display: block;
+    padding: var(--space-12);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-base);
+    transition: all var(--duration-fast) var(--ease-standard);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.nav-link.active {
+    background-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: var(--space-32);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-header {
+    margin-bottom: var(--space-32);
+    padding-bottom: var(--space-16);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-12);
+}
+
+.section-description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-lg);
+}
+
+/* Content Blocks */
+.content-block {
+    margin-bottom: var(--space-32);
+}
+
+.content-block h3 {
+    margin-bottom: var(--space-16);
+    font-size: var(--font-size-xl);
+}
+
+.content-block h4 {
+    margin-bottom: var(--space-12);
+    margin-top: var(--space-24);
+    font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.content-block p {
+    line-height: 1.7;
+    margin-bottom: var(--space-16);
+}
+
+.content-block ol, .content-block ul {
+    line-height: 1.7;
+    margin-bottom: var(--space-16);
+    padding-left: var(--space-24);
+}
+
+.content-block li {
+    margin-bottom: var(--space-12);
+}
+
+/* Info Boxes */
+.info-box {
+    padding: var(--space-16);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-24);
+    border-left: 4px solid;
+}
+
+.info-box.warning {
+    background-color: var(--color-bg-2);
+    border-left-color: var(--color-warning);
+}
+
+.info-box.success {
+    background-color: var(--color-bg-3);
+    border-left-color: var(--color-success);
+}
+
+.info-box.error {
+    background-color: var(--color-bg-4);
+    border-left-color: var(--color-error);
+}
+
+.info-box.info {
+    background-color: var(--color-bg-1);
+    border-left-color: var(--color-info);
+}
+
+.info-box-title {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-8);
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* Images */
+.instruction-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-border);
+    margin: var(--space-24) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.image-caption {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-8);
+    font-style: italic;
+}
+
+.image-wrapper {
+    margin: var(--space-32) 0;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    gap: var(--space-16);
+    margin-top: var(--space-32);
+    padding-top: var(--space-24);
+    border-top: 1px solid var(--color-border);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-12) var(--space-24);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-standard);
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+    background: var(--color-secondary-hover);
+}
+
+/* Command Block */
+.command-block {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    padding: var(--space-16);
+    margin: var(--space-16) 0;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    overflow-x: auto;
+}
+
+.command-block code {
+    background: none;
+    padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-16);
+    }
+    
+    .main-content {
+        padding: var(--space-16);
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Icons */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>📖 Содержание</h2>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-section="intro">Введение</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="open">Как открыть Управление дисками</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="create">Создание нового раздела</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="extend">Расширение существующего тома</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="recommendations">Рекомендации и советы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="troubleshooting">Решение проблем</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Введение -->
+            <section class="content-section active" id="intro">
+                <div class="section-header">
+                    <h1 class="section-title">Введение</h1>
+                    <p class="section-description">Основная информация о работе с разделами дисков</p>
+                </div>
+
+                <div class="content-block">
+                    <p>Создание новых разделов на SSD накопителе и расширение существующих томов через встроенную утилиту Windows — это безопасный и эффективный способ организации дискового пространства.</p>
+
+                    <h3>Зачем нужны разделы диска?</h3>
+                    <ul>
+                        <li><strong>Организация данных:</strong> Разделение системных файлов, программ и личных данных на разные тома упрощает управление и резервное копирование</li>
+                        <li><strong>Безопасность:</strong> При переустановке системы данные на других разделах остаются нетронутыми</li>
+                        <li><strong>Производительность:</strong> Отдельные разделы для разных типов файлов могут улучшить производительность системы</li>
+                        <li><strong>Удобство:</strong> Логическое разделение пространства помогает лучше контролировать использование дискового пространства</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <div class="info-box-title">⚠️ Важные требования</div>
+                        <p><strong>Права администратора:</strong> Для работы с разделами дисков необходимы права администратора системы.</p>
+                        <p><strong>Свободное место:</strong> Убедитесь, что на диске есть достаточно нераспределённого пространства или возможность сжать существующий раздел.</p>
+                        <p><strong>Резервное копирование:</strong> Рекомендуется создать резервную копию важных данных перед любыми операциями с разделами.</p>
+                    </div>
+
+                    <div class="info-box info">
+                        <div class="info-box-title">ℹ️ Что вы узнаете из этой инструкции</div>
+                        <ul>
+                            <li>Как открыть утилиту «Управление дисками» тремя разными способами</li>
+                            <li>Как создать новый раздел на диске с пошаговым процессом</li>
+                            <li>Как расширить существующий том различными методами</li>
+                            <li>Рекомендации по оптимальной структуре разделов</li>
+                            <li>Решения типичных проблем и ошибок</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-primary" onclick="navigateToSection('open')">Далее: Открыть Управление дисками →</button>
+                </div>
+            </section>
+
+            <!-- Как открыть Управление дисками -->
+            <section class="content-section" id="open">
+                <div class="section-header">
+                    <h1 class="section-title">Как открыть Управление дисками</h1>
+                    <p class="section-description">Три способа доступа к инструменту</p>
+                </div>
+
+                <div class="content-block">
+                    <p>Существует несколько способов открыть встроенную утилиту Windows для управления дисками. Выберите наиболее удобный для вас.</p>
+
+                    <h3>🔹 Способ 1: Через меню «Пуск» (Win+X)</h3>
+                    <p>Самый быстрый способ для Windows 11:</p>
+                    <ol>
+                        <li>Нажмите комбинацию клавиш <code>Win + X</code> на клавиатуре</li>
+                        <li>В появившемся контекстном меню выберите пункт <strong>«Управление дисками»</strong></li>
+                        <li>Откроется окно утилиты с визуальным представлением всех дисков</li>
+                    </ol>
+
+                    <div class="info-box success">
+                        <div class="info-box-title">✓ Рекомендуется</div>
+                        <p>Этот метод является самым быстрым и удобным способом доступа к утилите управления дисками в Windows 11.</p>
+                    </div>
+
+                    <h3>🔹 Способ 2: Через диалог «Выполнить» (Win+R)</h3>
+                    <p>Универсальный метод, работающий во всех версиях Windows:</p>
+                    <ol>
+                        <li>Нажмите комбинацию клавиш <code>Win + R</code></li>
+                        <li>В открывшемся окне «Выполнить» введите команду: <code>diskmgmt.msc</code></li>
+                        <li>Нажмите <strong>Enter</strong> или кнопку <strong>«ОК»</strong></li>
+                        <li>Утилита откроется немедленно</li>
+                    </ol>
+
+                    <div class="command-block">
+                        <code>diskmgmt.msc</code>
+                    </div>
+
+                    <h3>🔹 Способ 3: Через поиск Windows</h3>
+                    <p>Простой метод для начинающих пользователей:</p>
+                    <ol>
+                        <li>Нажмите клавишу <code>Win</code> или кликните на иконку «Пуск»</li>
+                        <li>Начните вводить: <strong>«управление дисками»</strong> или <strong>«disk management»</strong></li>
+                        <li>В результатах поиска выберите <strong>«Создание и форматирование разделов жёсткого диска»</strong></li>
+                        <li>Кликните по результату для запуска утилиты</li>
+                    </ol>
+
+                    <div class="info-box info">
+                        <div class="info-box-title">💡 Совет</div>
+                        <p>Все три способа открывают одну и ту же утилиту. Выберите тот, который вам удобнее запомнить. Опытные пользователи обычно используют первый или второй способ из-за их скорости.</p>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="navigateToSection('intro')">← Назад</button>
+                    <button class="btn btn-primary" onclick="navigateToSection('create')">Далее: Создание раздела →</button>
+                </div>
+            </section>
+
+            <!-- Создание нового раздела -->
+            <section class="content-section" id="create">
+                <div class="section-header">
+                    <h1 class="section-title">Создание нового раздела</h1>
+                    <p class="section-description">Пошаговая инструкция по созданию нового тома</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>📋 Обзор процесса</h3>
+                    <p>Создание нового раздела включает несколько этапов: открытие утилиты, подготовку пространства (если необходимо), создание тома и его форматирование. Процесс займёт 5-10 минут.</p>
+
+                    <h3>Шаг 1: Открытие утилиты «Управление дисками»</h3>
+                    <p>Используйте любой из способов, описанных в предыдущем разделе. Рекомендуется комбинация <code>Win + X</code> → <strong>Управление дисками</strong>.</p>
+
+                    <div class="image-wrapper">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/fce219d2-607e-4e0a-911e-9502d5a93d5d.png" alt="Главное окно Управления дисками" class="instruction-image">
+                        <p class="image-caption">Главное окно Управления дисками с нераспределённым пространством</p>
+                    </div>
+
+                    <p>После открытия вы увидите список всех подключённых дисков и их разделов. Нераспределённое пространство отображается тёмной полосой с надписью «Не распределена».</p>
+
+                    <h3>Шаг 2: Сжатие существующего раздела (если нет свободного места)</h3>
+                    <p>Если на вашем диске нет нераспределённого пространства, его можно создать путём сжатия существующего раздела:</p>
+                    <ol>
+                        <li>Найдите раздел, который хотите сжать (обычно это диск C: или D:)</li>
+                        <li>Кликните правой кнопкой мыши по этому разделу</li>
+                        <li>Выберите пункт <strong>«Сжать том...»</strong> в контекстном меню</li>
+                        <li>Дождитесь завершения анализа доступного пространства</li>
+                    </ol>
+
+                    <div class="image-wrapper">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/d2e37828-3d56-45ce-8c59-9a8d204c11c5.png" alt="Окно сжатия тома" class="instruction-image">
+                        <p class="image-caption">Окно сжатия тома с параметрами</p>
+                    </div>
+
+                    <p>В открывшемся окне:</p>
+                    <ul>
+                        <li><strong>Общий размер до сжатия:</strong> текущий размер раздела</li>
+                        <li><strong>Доступное для сжатия пространство:</strong> максимум, который можно освободить</li>
+                        <li><strong>Размер сжимаемого пространства:</strong> укажите нужное значение в МБ</li>
+                        <li><strong>Общий размер после сжатия:</strong> новый размер раздела</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <div class="info-box-title">⚠️ Важно при сжатии</div>
+                        <p>Не рекомендуется сжимать системный раздел (C:) менее чем до 100 ГБ. Оставьте достаточно места для обновлений Windows и временных файлов.</p>
+                    </div>
+
+                    <h3>Шаг 3: Создание простого тома</h3>
+                    <p>После того как появилось нераспределённое пространство:</p>
+                    <ol>
+                        <li>Найдите область с надписью <strong>«Не распределена»</strong></li>
+                        <li>Кликните по ней правой кнопкой мыши</li>
+                        <li>Выберите <strong>«Создать простой том...»</strong></li>
+                        <li>Откроется «Мастер создания простого тома» — нажмите <strong>«Далее»</strong></li>
+                    </ol>
+
+                    <div class="image-wrapper">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/bb4b8492-f6ca-491a-8d27-353c15b9ae12.png" alt="Мастер создания простого тома" class="instruction-image">
+                        <p class="image-caption">Мастер создания простого тома</p>
+                    </div>
+
+                    <h3>Шаг 4: Указание размера тома</h3>
+                    <p>На экране «Указание размера тома»:</p>
+                    <ul>
+                        <li><strong>Максимальный размер:</strong> всё доступное нераспределённое пространство</li>
+                        <li><strong>Простой размер тома:</strong> укажите желаемый размер в МБ</li>
+                    </ul>
+                    <p>Если хотите использовать всё пространство, оставьте значение по умолчанию. Нажмите <strong>«Далее»</strong>.</p>
+
+                    <h3>Шаг 5: Назначение буквы диска</h3>
+                    <p>Windows предложит назначить букву новому разделу:</p>
+                    <ul>
+                        <li>Выберите <strong>«Назначить букву диска»</strong> (рекомендуется)</li>
+                        <li>Из выпадающего списка выберите свободную букву (D:, E:, F: и т.д.)</li>
+                        <li>Или выберите <strong>«Не назначать букву диска»</strong>, если раздел будет монтироваться как папка</li>
+                    </ul>
+                    <p>Нажмите <strong>«Далее»</strong>.</p>
+
+                    <h3>Шаг 6: Форматирование раздела</h3>
+                    <p>Настройка параметров форматирования:</p>
+                    <ul>
+                        <li><strong>Файловая система:</strong> выберите <strong>NTFS</strong> (рекомендуется для Windows)</li>
+                        <li><strong>Размер кластера:</strong> оставьте <strong>«По умолчанию»</strong></li>
+                        <li><strong>Метка тома:</strong> введите понятное название (например, «Данные», «Документы», «Игры»)</li>
+                        <li>Установите галочку <strong>«Быстрое форматирование»</strong> для ускорения процесса</li>
+                    </ul>
+                    <p>Нажмите <strong>«Далее»</strong>.</p>
+
+                    <div class="info-box success">
+                        <div class="info-box-title">✓ Рекомендации по файловой системе</div>
+                        <p><strong>NTFS</strong> — лучший выбор для Windows. Поддерживает большие файлы (более 4 ГБ), шифрование, права доступа и сжатие.</p>
+                    </div>
+
+                    <h3>Шаг 7: Завершение создания</h3>
+                    <p>На финальном экране мастера:</p>
+                    <ol>
+                        <li>Проверьте все настройки в окне сводки</li>
+                        <li>Убедитесь, что размер, буква диска и файловая система указаны правильно</li>
+                        <li>Нажмите <strong>«Готово»</strong></li>
+                        <li>Дождитесь завершения форматирования (обычно занимает несколько секунд)</li>
+                    </ol>
+
+                    <p>После завершения новый раздел появится в «Проводнике» Windows и будет готов к использованию!</p>
+
+                    <div class="info-box success">
+                        <div class="info-box-title">✓ Готово!</div>
+                        <p>Новый раздел успешно создан и отформатирован. Вы можете начать использовать его для хранения файлов прямо сейчас.</p>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="navigateToSection('open')">← Назад</button>
+                    <button class="btn btn-primary" onclick="navigateToSection('extend')">Далее: Расширение тома →</button>
+                </div>
+            </section>
+
+            <!-- Расширение существующего тома -->
+            <section class="content-section" id="extend">
+                <div class="section-header">
+                    <h1 class="section-title">Расширение существующего тома</h1>
+                    <p class="section-description">Как увеличить размер раздела</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>📋 Когда нужно расширение тома</h3>
+                    <p>Расширение тома позволяет увеличить размер существующего раздела за счёт нераспределённого пространства. Это полезно, когда:</p>
+                    <ul>
+                        <li>На системном диске (C:) заканчивается свободное место</li>
+                        <li>Вы удалили ненужный раздел и хотите добавить его пространство к другому</li>
+                        <li>Вы установили больший SSD и хотите использовать новое пространство</li>
+                    </ul>
+
+                    <div class="info-box warning">
+                        <div class="info-box-title">⚠️ Важные условия для расширения</div>
+                        <p><strong>Критически важно:</strong> Расширить том можно только за счёт нераспределённого пространства, которое находится <strong>непосредственно справа</strong> от расширяемого раздела.</p>
+                        <p><strong>Файловая система:</strong> Раздел должен использовать файловую систему NTFS или ReFS (FAT32 не поддерживает расширение встроенными средствами Windows).</p>
+                        <p><strong>Отсутствие промежуточных разделов:</strong> Между расширяемым томом и свободным пространством не должно быть других разделов.</p>
+                    </div>
+
+                    <h3>Вариант 1: Простое расширение тома</h3>
+                    <p>Если справа от вашего раздела есть нераспределённое пространство:</p>
+                    <ol>
+                        <li>Откройте утилиту «Управление дисками»</li>
+                        <li>Найдите раздел, который нужно расширить</li>
+                        <li>Кликните по нему правой кнопкой мыши</li>
+                        <li>Выберите <strong>«Расширить том...»</strong> из контекстного меню</li>
+                    </ol>
+
+                    <div class="image-wrapper">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/3a60895a-e2ae-4f5a-a4cd-9970b9f05b33.png" alt="Опция расширения тома" class="instruction-image">
+                        <p class="image-caption">Опция расширения тома в контекстном меню</p>
+                    </div>
+
+                    <ol start="5">
+                        <li>В открывшемся «Мастере расширения тома» нажмите <strong>«Далее»</strong></li>
+                        <li>Укажите размер, на который хотите расширить том (по умолчанию используется всё доступное пространство)</li>
+                        <li>Нажмите <strong>«Далее»</strong> и затем <strong>«Готово»</strong></li>
+                    </ol>
+
+                    <div class="image-wrapper">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/8ee8de6e-8630-42b0-85f7-b0be2e5566c2.png" alt="Мастер расширения тома" class="instruction-image">
+                        <p class="image-caption">Мастер расширения тома с выбором размера</p>
+                    </div>
+
+                    <p>Расширение происходит мгновенно, и все данные на диске сохраняются.</p>
+
+                    <h3>Вариант 2: Расширение с удалением промежуточного раздела</h3>
+                    <p>Если между расширяемым томом и свободным пространством находится другой раздел:</p>
+                    
+                    <div class="info-box error">
+                        <div class="info-box-title">🛑 Внимание! Потеря данных</div>
+                        <p>Удаление раздела приведёт к <strong>безвозвратной потере всех данных</strong> на нём. Обязательно создайте резервную копию важных файлов!</p>
+                    </div>
+
+                    <ol>
+                        <li>Создайте резервную копию всех важных данных с раздела, который будет удалён</li>
+                        <li>Кликните правой кнопкой по промежуточному разделу</li>
+                        <li>Выберите <strong>«Удалить том...»</strong></li>
+                        <li>Подтвердите удаление</li>
+                        <li>Появится нераспределённое пространство</li>
+                        <li>Теперь можно расширить нужный том согласно Варианту 1</li>
+                    </ol>
+
+                    <h3>Вариант 3: Подготовка пространства через сжатие</h3>
+                    <p>Если справа от нужного раздела находится другой том, который можно сжать:</p>
+                    <ol>
+                        <li>Кликните правой кнопкой по разделу, находящемуся справа</li>
+                        <li>Выберите <strong>«Сжать том...»</strong></li>
+                        <li>Укажите размер сжимаемого пространства</li>
+                        <li>Нажмите <strong>«Сжать»</strong></li>
+                        <li>К сожалению, освободившееся пространство окажется <strong>слева</strong> от сжатого раздела</li>
+                        <li>Для расширения исходного раздела потребуется использовать сторонние программы (например, MiniTool Partition Wizard, AOMEI Partition Assistant)</li>
+                    </ol>
+
+                    <div class="info-box info">
+                        <div class="info-box-title">💡 Ограничение Windows</div>
+                        <p>Встроенная утилита Windows может расширять тома только вправо. Для более сложных операций (перемещение разделов, расширение влево) потребуется использование сторонних программ.</p>
+                    </div>
+
+                    <h3>Использование командной строки (продвинутый метод)</h3>
+                    <p>Расширение тома также можно выполнить через утилиту DiskPart:</p>
+                    <ol>
+                        <li>Нажмите <code>Win + X</code> и выберите <strong>«Терминал Windows (Администратор)»</strong></li>
+                        <li>Введите команду <code>diskpart</code> и нажмите Enter</li>
+                        <li>Введите <code>list volume</code> для просмотра всех томов</li>
+                        <li>Определите номер нужного тома</li>
+                        <li>Введите <code>select volume N</code> (где N — номер тома)</li>
+                        <li>Введите <code>extend</code> для расширения на всё доступное пространство</li>
+                        <li>Или <code>extend size=XXXX</code> для расширения на указанный размер в МБ</li>
+                    </ol>
+
+                    <div class="command-block">
+                        <code>diskpart<br>list volume<br>select volume 2<br>extend</code>
+                    </div>
+
+                    <div class="info-box success">
+                        <div class="info-box-title">✓ Преимущества командной строки</div>
+                        <p>Метод через DiskPart работает быстрее и может быть автоматизирован в скриптах. Подходит для опытных пользователей.</p>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="navigateToSection('create')">← Назад</button>
+                    <button class="btn btn-primary" onclick="navigateToSection('recommendations')">Далее: Рекомендации →</button>
+                </div>
+            </section>
+
+            <!-- Рекомендации и советы -->
+            <section class="content-section" id="recommendations">
+                <div class="section-header">
+                    <h1 class="section-title">Рекомендации и советы</h1>
+                    <p class="section-description">Лучшие практики работы с разделами дисков</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>🎯 Общие правила работы с дисками</h3>
+                    
+                    <h4>✓ Всегда создавайте резервные копии</h4>
+                    <p>Перед любыми операциями с разделами (создание, удаление, изменение размера) обязательно создавайте резервные копии важных данных. Хотя эти операции считаются безопасными, непредвиденные сбои могут привести к потере информации.</p>
+
+                    <h4>✓ Не заполняйте диски полностью</h4>
+                    <p>Оставляйте минимум 10-15% свободного места на каждом разделе. Это важно для:</p>
+                    <ul>
+                        <li>Поддержания производительности SSD (особенно критично)</li>
+                        <li>Корректной работы дефрагментации на HDD</li>
+                        <li>Возможности создания точек восстановления системы</li>
+                        <li>Нормальной работы временных файлов и кэша</li>
+                    </ul>
+
+                    <h4>✓ Используйте понятные имена разделов</h4>
+                    <p>Назначайте разделам осмысленные метки: «Система», «Документы», «Игры», «Медиа». Это упростит навигацию и предотвратит случайное удаление важных данных.</p>
+
+                    <h3>📊 Рекомендуемая структура разделов</h3>
+                    
+                    <h4>Диск C: — Система и программы</h4>
+                    <ul>
+                        <li><strong>Минимальный размер:</strong> 100-150 ГБ</li>
+                        <li><strong>Рекомендуемый размер:</strong> 200-250 ГБ</li>
+                        <li><strong>Содержимое:</strong> Windows, установленные программы, системные файлы</li>
+                        <li><strong>Файловая система:</strong> NTFS</li>
+                    </ul>
+
+                    <h4>Диск D: — Документы и личные файлы</h4>
+                    <ul>
+                        <li><strong>Размер:</strong> в зависимости от объёма данных (минимум 50 ГБ)</li>
+                        <li><strong>Содержимое:</strong> документы, фотографии, видео, музыка</li>
+                        <li><strong>Преимущество:</strong> данные сохраняются при переустановке системы</li>
+                    </ul>
+
+                    <h4>Диск E: — Игры (опционально)</h4>
+                    <ul>
+                        <li><strong>Размер:</strong> от 500 ГБ и больше</li>
+                        <li><strong>Содержимое:</strong> установленные игры</li>
+                        <li><strong>Преимущество:</strong> не засоряет системный раздел</li>
+                    </ul>
+
+                    <h4>Диск F: — Проекты/Работа (опционально)</h4>
+                    <ul>
+                        <li><strong>Размер:</strong> в зависимости от потребностей</li>
+                        <li><strong>Содержимое:</strong> рабочие проекты, большие файлы для монтажа</li>
+                        <li><strong>Преимущество:</strong> логическое разделение личного и рабочего</li>
+                    </ul>
+
+                    <div class="info-box success">
+                        <div class="info-box-title">✓ Оптимальная конфигурация для SSD 1 ТБ</div>
+                        <ul>
+                            <li>C: (Система) — 200 ГБ</li>
+                            <li>D: (Документы) — 300 ГБ</li>
+                            <li>E: (Игры) — 450 ГБ</li>
+                            <li>Резерв — 50 ГБ (оставить нераспределённым для будущих нужд)</li>
+                        </ul>
+                    </div>
+
+                    <h3>⚡ Особенности работы с SSD</h3>
+                    <ul>
+                        <li><strong>Выравнивание разделов:</strong> Windows 11 автоматически выравнивает разделы, но при использовании сторонних программ проверяйте этот параметр</li>
+                        <li><strong>TRIM:</strong> убедитесь, что функция TRIM включена (обычно включена по умолчанию в Windows 11)</li>
+                        <li><strong>Не заполняйте полностью:</strong> SSD теряют производительность при заполнении более 80-85%</li>
+                        <li><strong>Избегайте частой дефрагментации:</strong> Windows 11 автоматически оптимизирует SSD, ручная дефрагментация не требуется</li>
+                    </ul>
+
+                    <h3>🔒 Безопасность и надёжность</h3>
+                    
+                    <h4>Регулярное резервное копирование</h4>
+                    <p>Настройте автоматическое резервное копирование важных данных:</p>
+                    <ul>
+                        <li>Используйте встроенный «История файлов» Windows</li>
+                        <li>Создавайте образы системы раз в месяц</li>
+                        <li>Храните копии на внешних носителях или в облаке</li>
+                    </ul>
+
+                    <h4>Мониторинг состояния дисков</h4>
+                    <p>Следите за здоровьем ваших дисков:</p>
+                    <ul>
+                        <li>Используйте встроенный инструмент проверки диска</li>
+                        <li>Для SSD используйте программу CrystalDiskInfo для мониторинга S.M.A.R.T.</li>
+                        <li>Обращайте внимание на предупреждения системы</li>
+                    </ul>
+
+                    <div class="info-box info">
+                        <div class="info-box-title">💡 Полезный совет</div>
+                        <p>Создайте документ с описанием структуры ваших разделов и сохраните его на облачном диске. Это поможет при восстановлении системы или переходе на новый компьютер.</p>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="navigateToSection('extend')">← Назад</button>
+                    <button class="btn btn-primary" onclick="navigateToSection('troubleshooting')">Далее: Решение проблем →</button>
+                </div>
+            </section>
+
+            <!-- Решение проблем -->
+            <section class="content-section" id="troubleshooting">
+                <div class="section-header">
+                    <h1 class="section-title">Решение проблем</h1>
+                    <p class="section-description">Типичные ошибки и их устранение</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>❌ Проблема 1: Кнопка «Расширить том» неактивна (серая)</h3>
+                    
+                    <h4>Причины:</h4>
+                    <ul>
+                        <li>Нераспределённое пространство находится слева от раздела, а не справа</li>
+                        <li>Между разделом и свободным пространством есть другие тома</li>
+                        <li>Раздел использует файловую систему FAT32 вместо NTFS</li>
+                        <li>Раздел является системным разделом восстановления</li>
+                    </ul>
+
+                    <h4>Решения:</h4>
+                    <ol>
+                        <li><strong>Проверьте расположение свободного места:</strong> Расширение возможно только вправо. Если пространство слева, потребуется сторонняя программа</li>
+                        <li><strong>Удалите промежуточные разделы:</strong> Если между нужным томом и свободным местом есть другие разделы, их нужно удалить (предварительно сохранив данные)</li>
+                        <li><strong>Конвертируйте FAT32 в NTFS:</strong> Используйте команду <code>convert D: /fs:ntfs</code> в командной строке (где D: — буква диска)</li>
+                        <li><strong>Используйте сторонние программы:</strong> MiniTool Partition Wizard Free, AOMEI Partition Assistant позволяют перемещать разделы</li>
+                    </ol>
+
+                    <div class="command-block">
+                        <code>convert D: /fs:ntfs</code>
+                    </div>
+
+                    <h3>❌ Проблема 2: Недостаточно места для сжатия тома</h3>
+                    
+                    <h4>Причины:</h4>
+                    <ul>
+                        <li>На диске есть неперемещаемые файлы (файл подкачки, файл гибернации, системные файлы)</li>
+                        <li>Диск сильно фрагментирован (актуально для HDD)</li>
+                        <li>Включена защита системы с большими точками восстановления</li>
+                    </ul>
+
+                    <h4>Решения:</h4>
+                    <ol>
+                        <li><strong>Временно отключите файл подкачки:</strong>
+                            <ul>
+                                <li>Панель управления → Система → Дополнительные параметры системы</li>
+                                <li>Вкладка «Дополнительно» → Быстродействие → Параметры</li>
+                                <li>Вкладка «Дополнительно» → Виртуальная память → Изменить</li>
+                                <li>Выберите «Без файла подкачки» и перезагрузите компьютер</li>
+                            </ul>
+                        </li>
+                        <li><strong>Отключите гибернацию:</strong> В командной строке с правами администратора выполните <code>powercfg -h off</code></li>
+                        <li><strong>Удалите точки восстановления:</strong> Панель управления → Система → Защита системы → Настроить → Удалить все точки</li>
+                        <li><strong>Дефрагментируйте диск (только HDD):</strong> Используйте встроенный инструмент оптимизации дисков</li>
+                        <li><strong>После сжатия:</strong> Верните настройки файла подкачки и гибернации обратно</li>
+                    </ol>
+
+                    <div class="command-block">
+                        <code>powercfg -h off</code>
+                    </div>
+
+                    <div class="info-box warning">
+                        <div class="info-box-title">⚠️ Не забудьте вернуть настройки</div>
+                        <p>После сжатия тома обязательно включите обратно файл подкачки и гибернацию (если вы ими пользуетесь). Команда для включения гибернации: <code>powercfg -h on</code></p>
+                    </div>
+
+                    <h3>❌ Проблема 3: Новый диск не появляется в Проводнике</h3>
+                    
+                    <h4>Причины:</h4>
+                    <ul>
+                        <li>Диску не назначена буква</li>
+                        <li>Раздел не отформатирован</li>
+                        <li>Проводник не обновил список дисков</li>
+                    </ul>
+
+                    <h4>Решения:</h4>
+                    <ol>
+                        <li><strong>Назначьте букву диска:</strong>
+                            <ul>
+                                <li>Откройте «Управление дисками»</li>
+                                <li>Найдите новый раздел</li>
+                                <li>Правый клик → «Изменить букву диска или путь к диску»</li>
+                                <li>Нажмите «Добавить» → выберите букву → OK</li>
+                            </ul>
+                        </li>
+                        <li><strong>Отформатируйте раздел:</strong> Если раздел помечен как RAW, кликните правой кнопкой → «Форматировать»</li>
+                        <li><strong>Перезапустите Проводник:</strong> Диспетчер задач → найдите «Проводник» → «Перезапустить»</li>
+                        <li><strong>Перезагрузите компьютер:</strong> В редких случаях требуется полная перезагрузка</li>
+                    </ol>
+
+                    <h3>❌ Проблема 4: Потеря данных после операций с дисками</h3>
+                    
+                    <h4>Профилактика:</h4>
+                    <ul>
+                        <li><strong>Всегда создавайте резервные копии</strong> перед любыми операциями</li>
+                        <li><strong>Используйте образы системы</strong> для быстрого восстановления</li>
+                        <li><strong>Храните копии на отдельных носителях</strong> (внешний диск, облако)</li>
+                        <li><strong>Проверяйте дважды</strong> перед удалением разделов</li>
+                    </ul>
+
+                    <h4>Восстановление данных:</h4>
+                    <p>Если данные уже потеряны, попробуйте:</p>
+                    <ol>
+                        <li><strong>Немедленно прекратите использование диска</strong> — любая запись может перезаписать удалённые данные</li>
+                        <li><strong>Используйте программы восстановления:</strong>
+                            <ul>
+                                <li>Recuva (бесплатная)</li>
+                                <li>TestDisk &amp; PhotoRec (бесплатные, open-source)</li>
+                                <li>R-Studio (платная, профессиональная)</li>
+                                <li>EaseUS Data Recovery Wizard</li>
+                            </ul>
+                        </li>
+                        <li><strong>При критичной потере данных</strong> обратитесь к специалистам по восстановлению данных</li>
+                    </ol>
+
+                    <div class="info-box error">
+                        <div class="info-box-title">🛑 Важно!</div>
+                        <p>Шансы на успешное восстановление данных выше, если вы <strong>немедленно прекратите использование диска</strong> после обнаружения потери. Каждая новая операция записи уменьшает вероятность восстановления.</p>
+                    </div>
+
+                    <h3>❌ Проблема 5: Ошибка «Недостаточно места на диске»</h3>
+                    
+                    <h4>Решения:</h4>
+                    <ol>
+                        <li><strong>Очистка диска:</strong> Используйте встроенный инструмент «Очистка диска» для удаления временных файлов</li>
+                        <li><strong>Удаление старых обновлений:</strong> Панель управления → Программы и компоненты → Просмотр установленных обновлений</li>
+                        <li><strong>Анализ использования места:</strong> Используйте программу WinDirStat или встроенный «Контроль памяти»</li>
+                        <li><strong>Перенос файлов:</strong> Переместите большие файлы (игры, видео) на другой раздел</li>
+                        <li><strong>Расширение раздела:</strong> Если есть свободное место на диске, расширьте раздел согласно инструкции</li>
+                    </ol>
+
+                    <h3>🆘 Получение дополнительной помощи</h3>
+                    <p>Если проблема не решена:</p>
+                    <ul>
+                        <li>Проверьте официальную документацию Microsoft</li>
+                        <li>Обратитесь на форумы поддержки Windows</li>
+                        <li>Используйте встроенную справку Windows (F1)</li>
+                        <li>При критичных проблемах обратитесь к профессионалам</li>
+                    </ul>
+
+                    <div class="info-box success">
+                        <div class="info-box-title">✓ Помните</div>
+                        <p>Большинство проблем с разделами дисков можно решить без потери данных, если действовать осторожно и следовать инструкциям. При сомнениях всегда лучше проконсультироваться со специалистом или создать резервную копию.</p>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="navigateToSection('recommendations')">← Назад</button>
+                    <button class="btn btn-primary" onclick="navigateToSection('intro')">↻ В начало</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content-section');
+
+        function navigateToSection(sectionId) {
+            // Remove active class from all sections and links
+            sections.forEach(section => section.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Add active class to selected section and link
+            const targetSection = document.getElementById(sectionId);
+            const targetLink = document.querySelector(`[data-section="${sectionId}"]`);
+            
+            if (targetSection) {
+                targetSection.classList.add('active');
+                // Scroll to top of main content
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+        }
+
+        // Add click handlers to navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                navigateToSection(sectionId);
+            });
+        });
+
+        // Initialize - show intro section
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateToSection('intro');
+        });
+    </script>
+</body>
+</html>
